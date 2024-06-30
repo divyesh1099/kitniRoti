@@ -1,11 +1,11 @@
 from flask import Flask
-from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_wtf.csrf import CSRFProtect
+from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config.from_pyfile('../instance/config.py')
+app.config.from_object('config.Config')
+
 
 # Disable CSRF protection
 app.config['WTF_CSRF_ENABLED'] = False
